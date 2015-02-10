@@ -1,4 +1,4 @@
-checkio-task-verify-anagrams
+verify-anagrams
 ============================
 
-Checkio Mission "Verify anagrams"
+Vault 1.2 "Verify anagrams"
