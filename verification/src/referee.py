@@ -1,5 +1,5 @@
 from checkio_referee import RefereeBase
-from checkio_referee.covercode import py_unwrap_args
+from checkio_referee import covercodes, representations
 
 import settings
 import settings_env
@@ -10,6 +10,7 @@ def cover(f, data):
     return f(*[str(x) for x in data])
 """
 
+
 class Referee(RefereeBase):
     TESTS = TESTS
     EXECUTABLE_PATH = settings.EXECUTABLE_PATH
@@ -17,6 +18,11 @@ class Referee(RefereeBase):
     FUNCTION_NAME = "is_safe"
     ENV_COVERCODE = {
         "python_2": py2_cover_str_unwrap,
-        "python_3": py_unwrap_args,
+        "python_3": covercodes.py_unwrap_args,
         "javascript": None
+    }
+    CALLED_REPRESENTATIONS = {
+        "python_2": representations.unwrap_arg_representation,
+        "python_3": representations.unwrap_arg_representation,
+        "javascript": representations.unwrap_arg_representation,
     }
