@@ -46,5 +46,5 @@ api.add_listener(
         # add_allowed_modules=[],
         # add_close_builtins=[],
         # remove_allowed_modules=[],
-        function_name="verify_anagrams"
+        DEFAULT_FUNCTION_NAME="verify_anagrams"
     ).on_ready)

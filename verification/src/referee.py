@@ -13,9 +13,9 @@ def cover(f, data):
 
 class Referee(RefereeBase):
     TESTS = TESTS
-    EXECUTABLE_PATH = settings.EXECUTABLE_PATH
-    CURRENT_ENV = settings_env.CURRENT_ENV
-    FUNCTION_NAME = "is_safe"
+    ENVIRONMENTS = settings_env.ENVIRONMENTS
+
+    DEFAULT_FUNCTION_NAME = "is_safe"
     ENV_COVERCODE = {
         "python_2": py2_cover_str_unwrap,
         "python_3": covercodes.py_unwrap_args,
