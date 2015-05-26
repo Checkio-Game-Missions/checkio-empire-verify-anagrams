@@ -11,18 +11,19 @@ def cover(f, data):
 """
 
 
+def py_repr(test, function_name):
+    return "{}({})".format(function_name, ", ".join('"{}"'.format(d) for d in test["input"]))
+
+
 class Referee(RefereeBase):
     TESTS = TESTS
     ENVIRONMENTS = settings_env.ENVIRONMENTS
 
-    DEFAULT_FUNCTION_NAME = "is_safe"
+    DEFAULT_FUNCTION_NAME = "verify_anagrams"
     ENV_COVERCODE = {
-        "python_2": py2_cover_str_unwrap,
         "python_3": covercodes.py_unwrap_args,
         "javascript": None
     }
     CALLED_REPRESENTATIONS = {
-        "python_2": representations.unwrap_arg_representation,
-        "python_3": representations.unwrap_arg_representation,
-        "javascript": representations.unwrap_arg_representation,
+        "python_3": py_repr,
     }
